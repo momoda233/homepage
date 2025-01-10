@@ -94,6 +94,29 @@ export default ({ mode }) =>
     server: {
       port: "3000",
       open: true,
+      hmr: {
+        overlay:false,
+      },
+      proxy: {
+        '/sbtxqq': {
+              target: 'http://sbtxqq.com', // 目标接口地址
+              changeOrigin: true,         // 是否更改请求的源
+              secure: false,
+              rewrite: (path) => path.replace(/^\/sbtxqq/, ''), // 去掉路径中的 `/api` 前缀
+            },
+          '/yujn': {
+              target: 'http://api.yujn.cn', // 目标接口地址
+              secure: false,
+              changeOrigin: true,         // 是否更改请求的源
+              rewrite: (path) => path.replace(/^\/yujn/, ''), // 去掉路径中的 `/api` 前缀
+          },
+          '/bilibili': {
+              target: 'https://player.bilibili.com', // 目标接口地址
+              secure: false,
+              changeOrigin: true,         // 是否更改请求的源
+              rewrite: (path) => path.replace(/^\/bilibili/, ''), // 去掉路径中的 `/api` 前缀
+          },
+      },
     },
     resolve: {
       alias: [
@@ -111,6 +134,7 @@ export default ({ mode }) =>
         },
       },
     },
+    base: './', // 设置相对路径
     build: {
       minify: "terser",
       terserOptions: {

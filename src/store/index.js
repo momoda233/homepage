@@ -8,23 +8,25 @@ export const mainStore = defineStore("main", {
       coverType: "0", // 壁纸种类
       siteStartShow: false, // 建站日期显示
       musicClick: false, // 音乐链接是否跳转
-      musicIsOk: false, // 音乐是否加载完成
-      musicVolume: 0, // 音乐音量;
-      musicOpenState: false, // 音乐面板开启状态
+      musicIsOk: true, // 音乐是否加载完成
+      musicVolume: 10, // 音乐音量;
+      musicOpenState: true, // 音乐面板开启状态
       backgroundShow: false, // 壁纸展示状态
       boxOpenState: false, // 盒子开启状态
       mobileOpenState: false, // 移动端开启状态
-      mobileFuncState: false, // 移动端功能区开启状态
+      mobileFuncState: true, // 移动端功能区开启状态
       setOpenState: false, // 设置页面开启状态
-      playerState: false, // 当前播放状态
+      playerState: true, // 当前播放状态
       playerTitle: null, // 当前播放歌曲名
       playerArtist: null, // 当前播放歌手名
-      playerLrc: "歌词加载中", // 当前播放歌词
+      playerLrc: "歌词加载中喵", // 当前播放歌词
       playerLrcShow: true, // 是否显示底栏歌词
-      footerBlur: true, // 底栏模糊
-      playerAutoplay: false, // 是否自动播放
+      footerBlur: false, // 底栏模糊
+      playerAutoplay: true, // 是否自动播放
       playerLoop: "all", // 循环播放 "all", "one", "none"
       playerOrder: "list", // 循环顺序 "list", "random"
+      rightContent: 'getRenMinSentence', // 右边展示内容，默认 人民日报金句
+      rightContentShowStatus: true, // 右边展示状态
     };
   },
   getters: {
@@ -43,6 +45,15 @@ export const mainStore = defineStore("main", {
     getInnerWidth(state) {
       return state.innerWidth;
     },
+    // 获取右边展示内容全部
+    getRightContent(state) {
+      return state.rightContent;
+    },
+    // 获取右边展示内容状态
+    getRightContentShowStatus(state) {
+      return state.rightContentShowStatus;
+    },
+
   },
   actions: {
     // 更改当前页面宽度
@@ -74,6 +85,15 @@ export const mainStore = defineStore("main", {
     setImgLoadStatus(value) {
       this.imgLoadStatus = value;
     },
+    // 更改右边展示内容状态
+    setRightContentShowStatus(value) {
+      this.rightContentShowStatus = value;
+    },
+    // 更改右边展示内容
+    setRightContent(value) {
+      this.rightContent = value;
+    },
+
   },
   persist: {
     key: "data",

@@ -91,7 +91,7 @@ export const helloInit = () => {
   }
   ElMessage({
     dangerouslyUseHTMLString: true,
-    message: `<strong>${hello}</strong> 欢迎来到我的主页`,
+    message: `<strong>${hello}</strong> &nbsp;&nbsp;  欢迎来到深海打捞的喵的主页喵`,
   });
 };
 
@@ -140,5 +140,5 @@ export const siteDateStatistics = (startDate) => {
     months += 12;
   }
 
-  return `本站已经苟活了 ${years} 年 ${months} 月 ${days} 天`;
+  // return `本站已经苟活了 ${years} 年 ${months} 月 ${days} 天`;
 };

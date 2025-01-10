@@ -2,13 +2,13 @@
   <!-- 功能区域 -->
   <div :class="store.mobileFuncState ? 'function mobile' : 'function'">
     <el-row :gutter="20">
-      <el-col :span="12">
+      <el-col :span="20">
         <div class="left">
           <Hitokoto />
           <Music v-if="playerHasId" />
         </div>
       </el-col>
-      <el-col :span="12">
+      <!-- <el-col :span="12">
         <div class="right cards">
           <div class="time">
             <div class="date">
@@ -23,7 +23,7 @@
           </div>
           <Weather />
         </div>
-      </el-col>
+      </el-col> -->
     </el-row>
   </div>
 </template>
@@ -42,8 +42,7 @@ const currentTime = ref({});
 const timeInterval = ref(null);
 
 // 播放器 id
-const playerHasId = import.meta.env.VITE_SONG_ID;
-
+const playerHasId = import.meta.env.VITE_SONG_ID||'5279533760';
 // 更新时间
 const updateTimeData = () => {
   currentTime.value = getCurrentTime();
@@ -60,6 +59,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
+
 .function {
   height: 165px;
   display: flex;
@@ -78,6 +78,16 @@ onBeforeUnmount(() => {
       }
     }
   }
+  @media screen and (min-width: 1920px) {
+      position: absolute;
+      left: 2vw;
+      width: 22%;
+      top: 18vw;
+  }
+  @media screen and (max-width: 720px) {
+    margin-top: 8vw;
+  }
+    
   .el-row {
     height: 100%;
     width: 100%;
@@ -147,4 +157,5 @@ onBeforeUnmount(() => {
     }
   }
 }
+
 </style>

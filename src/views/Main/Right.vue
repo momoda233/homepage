@@ -1,10 +1,6 @@
 <template>
   <div :class="store.mobileOpenState ? 'right' : 'right hidden'">
     <!-- 移动端 Logo -->
-    <div class="logo text-hidden" @click="store.mobileFuncState = !store.mobileFuncState">
-      <span class="bg">{{ siteUrl[0] }}</span>
-      <span class="sm">.{{ siteUrl[1] }}</span>
-    </div>
     <!-- 功能区 -->
     <Func />
     <!-- 网站链接 -->
@@ -61,8 +57,13 @@ const siteUrl = computed(() => {
     }
   }
   @media (max-width: 720px) {
-    margin-left: 0;
-    width: 100%;
+      margin-left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2509803922);
+      backdrop-filter: blur(2px);
     &.hidden {
       display: none;
     }

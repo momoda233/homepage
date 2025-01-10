@@ -27,10 +27,26 @@
 - [x] 站点简介
 - [x] Hitokoto 一言
 - [x] 日期及时间
-- [x] 实时天气
-- [x] 时光进度条
+- [x] ~~实时天气，已删除~~
+- [x] ~~时光进度条，已删除~~
 - [x] 音乐播放器
 - [x] 移动端适配
+- [x] 新增人民日报金句
+- [x] 新增每日成语
+- [x] 新增央视新闻
+- [x] 新增历史上的今天
+- [x] 新增今日热搜
+- [x] 新增网易云热评
+- [x] 新增随机二次元图片
+- [x] 新增随机cosplay图片
+- [x] 新增随机ikun表情包
+- [x] 新增随机小姐姐视频
+- [x] 新增随机白丝视频
+- [x] 新增随机B站小姐姐视频
+- [x] 新增nin视频
+- [x] 新增天府之国项目
+- [x] 新增滚动时间
+- [x] 其他正在开发
 
 ### ⚙️ 自动部署
 
@@ -98,7 +114,7 @@ docker run -p 12445:12445 -d home
 {
   "icon": "Blog",
   "name": "博客",
-  "link": "https://blog.imsyy.top/"
+  "link": "http://momoda.voin.ink/own/index.html"
 },
 ```
 
@@ -219,7 +235,7 @@ if (type == 0) {
   bgUrl.value = `/images/background${Math.floor(Math.random() * 10 + 1)}.webp`;
 }
 ```
-
+现版本已锁死背景图片，加快加载速度
 #### 网站图标
 
 可以在 `public/images/icon` 中修改网站图标。

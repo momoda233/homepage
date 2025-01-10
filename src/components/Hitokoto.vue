@@ -67,12 +67,12 @@ const getHitokotoData = async () => {
 const updateHitokoto = () => {
   // 防抖
   debounce(() => {
-    getHitokotoData();
+    // getHitokotoData();
   }, 500);
 };
 
 onMounted(() => {
-  getHitokotoData();
+  // getHitokotoData();
 });
 </script>
 

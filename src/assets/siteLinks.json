@@ -1,37 +1,186 @@
 [
   {
-    "icon": "Blog",
-    "name": "博客",
-    "link": "https://blog.imsyy.top/"
-  },
-  {
-    "icon": "Cloud",
-    "name": "网盘",
-    "link": "https://pan.imsyy.top/"
-  },
-  {
     "icon": "CompactDisc",
-    "name": "音乐",
-    "link": "https://music.imsyy.top/"
+    "name": "音乐列表",
+    "type": "1",
+    "isOpen": true
   },
   {
-    "icon": "Compass",
-    "name": "起始页",
-    "link": "https://nav.imsyy.top/"
+    "icon": "PencilAlt",
+    "name": "人民日报金句",
+    "type": "1",
+    "isOpen": false,
+    "api": "getRenMinSentence", 
+    "returnType": "text"
+  },  
+  {
+    "icon": "PencilAlt",
+    "name": "每日成语",
+    "type": "1",
+    "isOpen": false,
+    "api": "getChengYu", 
+    "returnType": "text"
+  },
+  {
+    "icon": "Bullhorn",
+    "name": "央视新闻",
+    "type": "1",
+    "isOpen": false,
+    "api": "getYangShiNews", 
+    "returnType": "json"
   },
   {
     "icon": "Book",
-    "name": "网址集",
-    "link": "https://web.imsyy.top/"
+    "name": "每天60s读懂世界",
+    "type": "1",
+    "isOpen": false,
+    "api": "get60sWorld", 
+    "returnType": "image"
+  },
+  {
+    "icon": "Blog",
+    "name": "摸鱼人日历",
+    "type": "1",
+    "isOpen": false,
+    "api": "getMoYuCalendar", 
+    "returnType": "image"
+  },
+  {
+    "icon": "CalendarDay",
+    "name": "历史上的今天",
+    "type": "1",
+    "isOpen": false,
+    "api": "getHistoryToday", 
+    "returnType": "text"
   },
   {
     "icon": "Fire",
-    "name": "今日热榜",
-    "link": "https://hot.imsyy.top/"
+    "name": "今日热搜",
+    "type": "1",
+    "isOpen": false,
+    "api": "getHotSearch", 
+    "returnType": "text"
   },
   {
-    "icon": "LaptopCode",
-    "name": "站点监测",
-    "link": "https://status.imsyy.top/"
+    "icon": "SadCryRegular",
+    "name": "网易云热评",
+    "type": "2",
+    "isOpen": false,
+    "api": "getWangYiYun", 
+    "returnType": "text"
+  },
+  {
+    "icon": "Camera",
+    "name": "每日一句绿茶",
+    "type": "2",
+    "isOpen": false,
+    "api": "getLvCha", 
+    "returnType": "text"
+  },
+  {
+    "icon": "GrinHeartsRegular",
+    "name": "随机一张二次元图片",
+    "type": "2",
+    "isOpen": true,
+    "api": "getErCiYuanPicture", 
+    "returnType": "image"
+  },
+
+  {
+    "icon": "KissWinkHeart",
+    "name": "随机一张cosplay图片",
+    "type": "2",
+    "isOpen": true,
+    "api": "getCosPicture", 
+    "returnType": "image"
+  },
+  {
+    "icon": "Cloud",
+    "name": "随机ikun表情包",
+    "type": "2",
+    "isOpen": true,
+    "api": "getIkunPicture", 
+    "returnType": "image"
+  },
+  {
+    "icon": "Cloud",
+    "name": "随机柴郡表情包",
+    "type": "2",
+    "isOpen": true,
+    "api": "getChaijunPicture", 
+    "returnType": "image"
+  },
+
+  {
+    "icon": "GrinHearts",
+    "name": "随机小姐姐视频",
+    "type": "2",
+    "isOpen": true,
+    "api": "getJKVideo", 
+    "returnType": "video"
+  },
+
+  {
+    "icon": "Heart",
+    "name": "随机白丝视频",
+    "type": "2",
+    "isOpen": true,
+    "api": "getBaiSiVideo", 
+    "returnType": "video"
+  },  
+  {
+    "icon": "Compass",
+    "name": "随机cos视频（坏）",
+    "type": "2",
+    "isOpen": true,
+    "api": "getCosVideo", 
+    "returnType": "video"
+  },
+  {
+    "icon": "HandHoldingHeart",
+    "name": "随机B站小姐姐视频",
+    "type": "2",
+    "isOpen": true,
+    "api": "getBVSisterVideo", 
+    "returnType": "video"
+  },
+  {
+    "icon": "HandHoldingHeart",
+    "name": "随机B站收藏-泥泥ninni视频",
+    "type": "2",
+    "isOpen": true,
+    "api": "getBVNinVideo", 
+    "returnType": "video"
+  },
+  {
+    "icon": "Kiss",
+    "name": "天府之国",
+    "type": "3",
+    "isOpen": false,
+    "link": "http://momoda.voin.ink/sichuan/index.html"
+  },
+  {
+    "icon": "UserTimes",
+    "name": "我の接口",
+    "type": "3",
+    "isOpen": true,
+    "repair": true,
+    "returnType": "text"
+  },
+  {
+    "icon": "CompactDisc",
+    "name": "正在开发の歌单列表",
+    "type": "3",
+    "returnType": "text",
+    "repair": true,
+    "isOpen": true
+  },
+  {
+    "icon": "BirthdayCake",
+    "name": "正在开发の生日祝福",
+    "type": "3",
+    "remark": "弹窗列出几个人的，？",
+    "repair": true,
+    "isOpen": true
   }
 ]

@@ -8,7 +8,8 @@ import fetchJsonp from "fetch-jsonp";
 // 获取音乐播放列表
 export const getPlayerList = async (server, type, id) => {
   const res = await fetch(
-    `${import.meta.env.VITE_SONG_API}?server=${server}&type=${type}&id=${id}`,
+    `${import.meta.env.VITE_SONG_API||'https://api.wuenci.com/meting/api/'}?server=${server}&type=${type}&id=${id}`,
+    // ||'https://api.wuenci.com/meting/api/'
   );
   const data = await res.json();
 
@@ -38,6 +39,7 @@ export const getPlayerList = async (server, type, id) => {
     }));
   }
 };
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 /**
  * 一言
@@ -72,4 +74,129 @@ export const getWeather = async (key, city) => {
 export const getOtherWeather = async () => {
   const res = await fetch("https://api.oioweb.cn/api/weather/GetWeather");
   return await res.json();
+};
+
+// 获取人民日报金句
+// http://momoda.voin.ink/bg/人民日报.php
+export const getRenMinSentence= async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/renminribao.php");
+    return await res.text(); // 读取文本内容并返回
+};
+// 获取每日成语
+// http://momoda.voin.ink/bg/chengyuapi.php
+export const getChengYu= async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/chengyuapi.php");
+  return res.json(); // 读取内容并返回
+};
+
+// 获取央视新闻
+// 老接口 http://momoda.voin.ink/test/新闻.php
+export const getYangShiNews = async () => {
+  const res = await fetch("http://momoda.voin.ink/test/xinwen.php");
+  return await res.json(); // 读取文本内容并返回
+};
+// 获取每天60s读懂世界
+// https://api.03c3.cn/api/zb
+export const get60sWorld = async () => {
+  const res = await fetch("https://api.03c3.cn/api/zb");
+    return await res; // 读取文本内容并返回
+};
+
+// 获取摸鱼人日历
+// http://api.vvhan.com/api/moyu
+export const getMoYuCalendar = async () => {
+  const res = await fetch("http://api.vvhan.com/api/moyu");
+    return await res; // 读取文本内容并返回
+};
+
+// 获取历史上的今天
+// http://momoda.voin.ink/bg/历史上的今天.php
+export const getHistoryToday = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/lishi.php");
+      return await res.text(); // 读取文本内容并返回
+};
+
+// 获取百度热搜
+// http://momoda.voin.ink/bg/百度热搜.php
+export const getHotSearch = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/resou.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// 获取网易云热评
+// http://momoda.voin.ink/bg/网易云热评.php
+export const getWangYiYun = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/网易云热评.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// 获取绿茶
+// http://momoda.voin.ink/bg/绿茶.php
+export const getLvCha = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/绿茶.php");
+      return await res.text(); // 读取文本内容并返回
+};
+
+// 获取cos图片
+// http://momoda.voin.ink/bg/cos.php
+export const getCosPicture = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/cosapi.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// 获取二次元图片
+// http://momoda.voin.ink/bg/erciyuan.php
+export const getErCiYuanPicture = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/erciyuan.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// 获取ikun表情包
+// http://momoda.voin.ink/bg/ikunapi.php
+export const getIkunPicture = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/ikunapi.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// 获取i柴郡表情包
+// http://api.yujn.cn/api/chaijun.php?content_copy"
+export const getChaijunPicture = async () => {
+  const res = await fetch("http://api.yujn.cn/api/chaijun.php");
+  return res; // 读取内容并返回
+};
+// 视频区
+// 随机小姐姐视频
+export const getJKVideo = async () => {
+  const res = await fetch("/yujn/api/zzxjj.php");
+  return res; // 读取内容并返回
+};
+// 随机cos视频
+export const getCosVideo = async () => {
+  const res = await fetch("http://sbtxqq.com/api/cossp.php");
+  console.log(res,'resres');
+  return res; // 读取内容并返回
+};
+// 随机白丝视频
+export const getBaiSiVideo = async () => {
+  const res = await fetch("/yujn/api/baisis.php");
+  // console.log(res,'resres');
+  return res; // 读取内容并返回
+};
+// 随机B站小姐姐视频
+// export const getBVSisterVideo = async () => {
+//   const IDArr =['2054530954','3262571154','3289036254','3398398454','3417778254'];
+//   const randomId = IDArr[Math.floor(Math.random()*IDArr.length)];
+//   const res = await fetch("https://api.bilibili.com/x/v3/fav/resource/list?media_id="+randomId+"&pn=5&ps=5&keyword=&order=mtime&type=0&tid=0&platform=web&jsonp=jsonp",
+//     {
+//     method: 'GET',
+//     credentials: 'include',
+//     mode: 'cors',
+//   }
+//   );
+//   console.log(res,'resres');
+//   return res.json(); // 读取内容并返回
+// };
+export const getBVSisterVideo = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/BVcosapi.php");
+      return await res.text(); // 读取文本内容并返回
+};
+// nin视频
+export const getBVNinVideo = async () => {
+  const res = await fetch("http://momoda.voin.ink/bg/BVnin.php");
+      return await res.text(); // 读取文本内容并返回
 };

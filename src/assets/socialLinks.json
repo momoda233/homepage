@@ -1,38 +1,30 @@
 [
   {
     "name": "Github",
-    "icon": "/images/icon/github.png",
-    "tip": "去 Github 看看",
-    "url": "https://github.com/imsyy"
+    "icon": "https://cdn-jp.imgs.moe/2025/01/09/github_x9UigIxP4q.png",
+    "tip": "去 Github 看看喵",
+    "url": "https://github.com/momoda233"
   },
   {
     "name": "BiliBili",
-    "icon": "/images/icon/bilibili.png",
+    "icon": "https://cdn-jp.imgs.moe/2025/01/09/bilibili_RpuUC3kAVi.png",
     "tip": "(゜-゜)つロ 干杯 ~",
-    "url": "https://space.bilibili.com/98544142"
+    "url": "https://space.bilibili.com/389759754"
   },
   {
     "name": "QQ",
-    "icon": "/images/icon/qq.png",
-    "tip": "有什么事吗",
-    "url": "https://res.abeim.cn/api/qq/?qq=1539250352"
+    "icon": "https://cdn-jp.imgs.moe/2025/01/09/qq_JGcwrdfhXI.png",
+    "tip": "qq群喵——681945691"
   },
   {
-    "name": "Email",
-    "icon": "/images/icon/email.png",
-    "tip": "来封 Email ~",
-    "url": "mailto:one@imsyy.top"
+    "name": "Weixin",
+    "icon": "https://cdn-jp.imgs.moe/2025/01/09/weixin_BAgXkmnO11.png",
+    "tip": "加我微信喵w718301850"
   },
   {
     "name": "Twitter",
-    "icon": "/images/icon/twitter.png",
-    "tip": "你懂的 ~",
-    "url": "https://twitter.com/iimmsyy"
-  },
-  {
-    "name": "Telegram",
-    "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
-    "url": "https://t.me/bottom_user"
+    "icon": "https://cdn-jp.imgs.moe/2025/01/09/twitter_4Eidjj4OVd.png",
+    "tip": "你懂的喵 ~",
+    "url": "https://twitter.com/yourpig5"
   }
 ]

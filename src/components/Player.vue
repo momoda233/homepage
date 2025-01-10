@@ -65,7 +65,7 @@ const props = defineProps({
   // id
   songId: {
     type: String,
-    default: "7452421335",
+    default: "5279533760",
   },
   // 列表是否默认折叠
   listFolded: {
@@ -88,7 +88,7 @@ onMounted(() => {
   nextTick(() => {
     try {
       getPlayerList(props.songServer, props.songType, props.songId).then((res) => {
-        console.log(res);
+        // console.log(res,'getPlayerList');
         // 更改播放器加载状态
         store.musicIsOk = true;
         // 生成歌单
@@ -138,6 +138,7 @@ const onPause = () => {
 // 音频时间更新事件
 const onTimeUp = () => {
   let lyrics = player.value.aplayer.lyrics[playIndex.value];
+  // console.log(lyrics,'lyricslyrics');
   let lyricIndex = player.value.aplayer.lyricIndex;
   if (!lyrics || !lyrics[lyricIndex]) {
     return;

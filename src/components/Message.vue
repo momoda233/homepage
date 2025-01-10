@@ -3,14 +3,16 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-      <img class="logo-img" :src="siteLogo" alt="logo" />
+      <img class="logo-img" src="./../../public/images/icon/logo.jpg" alt="logo" />
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
-        <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
+        <!-- <span class="bg">{{ siteUrl[0] }}</span>
+        <span class="sm">.{{ siteUrl[1] }}</span> -->
+        <span class="sm">喵喵喵？</span>
       </div>
     </div>
     <!-- 简介 -->
-    <div class="description cards" @click="changeBox">
+    <!-- @click="changeBox"方法隐藏 -->
+    <div class="description cards">
       <div class="content">
         <Icon size="16">
           <QuoteLeft />
@@ -52,8 +54,9 @@ const siteUrl = computed(() => {
 
 // 简介区域文字
 const descriptionText = reactive({
-  hello: import.meta.env.VITE_DESC_HELLO,
-  text: import.meta.env.VITE_DESC_TEXT,
+  hello: import.meta.env.VITE_DESC_HELLO||'喵喵喵！',
+  text: import.meta.env.VITE_DESC_TEXT||
+  "这里是深海打捞的喵的主页喵，\n欢迎来到我的小窝喵！请自行探索喵！",
 });
 
 // 切换右侧功能区
@@ -123,6 +126,7 @@ watch(
       }
       .name {
         height: 128px;
+        transform: translateY(38px);
         .bg {
           font-size: 4.5rem;
         }
@@ -164,6 +168,7 @@ watch(
     @media (max-width: 720px) {
       max-width: 100%;
       pointer-events: none;
+      margin-right: 1em;
     }
   }
   // @media (max-width: 390px) {

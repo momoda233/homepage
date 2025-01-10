@@ -8,7 +8,9 @@
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container" v-show="!store.backgroundShow">
         <section class="all" v-show="!store.setOpenState">
+          <MainTop />
           <MainLeft />
+          <RightContent/>
           <MainRight v-show="!store.boxOpenState" />
           <Box v-show="store.boxOpenState" />
         </section>
@@ -39,6 +41,8 @@ import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import { Icon } from "@vicons/utils";
 import Loading from "@/components/Loading.vue";
+import MainTop from "@/components/MainTop.vue";
+import RightContent from "@/components/RightContent.vue";
 import MainLeft from "@/views/Main/Left.vue";
 import MainRight from "@/views/Main/Right.vue";
 import Background from "@/components/Background.vue";
@@ -82,11 +86,11 @@ onMounted(() => {
 
   // 屏蔽右键
   document.oncontextmenu = () => {
-    ElMessage({
-      message: "为了浏览体验，本站禁用右键",
-      grouping: true,
-      duration: 2000,
-    });
+    // ElMessage({
+    //   message: "为了浏览体验，本站禁用右键",
+    //   grouping: true,
+    //   duration: 2000,
+    // });
     return false;
   };
 
@@ -104,21 +108,15 @@ onMounted(() => {
   // 监听当前页面宽度
   getWidth();
   window.addEventListener("resize", getWidth);
-
+console.log('喵喵喵の主页',store.boxOpenState);
   // 控制台输出
   const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
   const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
   const styleContent = "color: rgb(30,152,255);";
-  const title1 = "無名の主页";
-  const title2 = `
- _____ __  __  _______     ____     __
-|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
-  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ /
-  | | | |\\/| |\\___ \\  \\   /    \\   /
- _| |_| |  | |____) |  | |      | |
-|_____|_|  |_|_____/   |_|      |_|`;
+  const title1 = "喵喵喵の主页";
+
   const content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
-  console.info(`%c${title1} %c${title2} %c${content}`, styleTitle1, styleTitle2, styleContent);
+  // console.info(`%c${title1} %c${title2} %c${content}`, styleTitle1, styleTitle2, styleContent);
 });
 
 onBeforeUnmount(() => {
@@ -236,7 +234,8 @@ onBeforeUnmount(() => {
     }
   }
   @media (max-width: 390px) {
-    overflow-x: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
     .container {
       width: 391px;
     }

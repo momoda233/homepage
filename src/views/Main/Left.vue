@@ -17,7 +17,11 @@ const store = mainStore();
   // flex: 1 0 0%;
   width: 50%;
   margin-right: 10px;
-  transform: translateY(20px);
+  // transform: translateY(20px);
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  z-index: 0;
   &.hidden {
     display: none;
   }
