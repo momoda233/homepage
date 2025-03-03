@@ -11,6 +11,9 @@ import viteCompression from "vite-plugin-compression";
 // https://vitejs.dev/config/
 export default ({ mode }) =>
   defineConfig({
+    define: {
+      'process.env': process.env
+    },
     plugins: [
       vue(),
       AutoImport({
@@ -115,6 +118,12 @@ export default ({ mode }) =>
               secure: false,
               changeOrigin: true,         // 是否更改请求的源
               rewrite: (path) => path.replace(/^\/bilibili/, ''), // 去掉路径中的 `/api` 前缀
+          },
+          '/bilibili': {
+              target: 'http://momoda.voin.ink/', // 目标接口地址
+              secure: false,
+              changeOrigin: true,         // 是否更改请求的源
+              rewrite: (path) => path.replace(/^\/momoda.voin.ink/, ''), // 去掉路径中的 `/api` 前缀
           },
       },
     },

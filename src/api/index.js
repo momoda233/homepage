@@ -162,20 +162,25 @@ export const getChaijunPicture = async () => {
 // 视频区
 // 随机小姐姐视频
 export const getJKVideo = async () => {
-  const res = await fetch("/yujn/api/zzxjj.php");
+  const res = await fetch("http://momoda.voin.ink/bg/xiaojiejie.php");
   return res; // 读取内容并返回
 };
 // 随机cos视频
 export const getCosVideo = async () => {
-  const res = await fetch("http://sbtxqq.com/api/cossp.php");
+  const res = await fetch("http://momoda.voin.ink/bg/cosvideo.php");
   console.log(res,'resres');
   return res; // 读取内容并返回
 };
 // 随机白丝视频
 export const getBaiSiVideo = async () => {
-  const res = await fetch("/yujn/api/baisis.php");
-  // console.log(res,'resres');
-  return res; // 读取内容并返回
+  // 判断环境，开发环境使用代理路径，生产环境使用真实 API 地址
+  const apiUrl = process.env.NODE_ENV === 'development'
+    ? '/yujn/api/baisis.php'  // 在开发环境中使用相对路径
+    : 'http://api.yujn.cn/api/baisis.php?type=video';  // 在生产环境中使用绝对路径
+    // const res = await fetch("http://momoda.voin.ink/bg/baisivideo.php");
+
+  const res = await fetch(apiUrl);
+  return res;  // 读取内容并返回
 };
 // 随机B站小姐姐视频
 // export const getBVSisterVideo = async () => {

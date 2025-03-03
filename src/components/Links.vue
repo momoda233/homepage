@@ -434,8 +434,12 @@ const openModalList = async (data) => {
           if(data.api === 'getBaiSiVideo' 
           || data.api === 'getCosVideo'
           || data.api === 'getJKVideo'){
-            const videoUrl = response.url;
-            showContent.value =  videoUrl;
+            // 获取视频数据并转换为 Blob URL
+          const videoBlob = await response.blob();
+          const videoBlobUrl = URL.createObjectURL(videoBlob);
+          // 设置视频源 URL
+            // const videoUrl = response.url;
+            showContent.value =  videoBlobUrl;
             isShowContent.value = '1';
         }else if(data.api === 'getBVSisterVideo'||data.api === 'getBVNinVideo'){
             isShowContent.value = '4';
