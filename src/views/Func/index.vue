@@ -1,6 +1,8 @@
 <template>
   <!-- 功能区域 -->
-  <div :class="store.mobileFuncState ? 'function mobile' : 'function'">
+  <div :class="store.mobileFuncState ? 'function mobile' : store.detectBrowser=='Edge' ? 'function-edge' : 'function'">
+    <!-- <span v-show="store.detectBrowser!='Edge'">121212</span> -->
+  <!-- <div :class="store.mobileFuncState ? 'function mobile' : 'function'"> -->
     <el-row :gutter="20">
       <el-col :span="20">
         <div class="left">
@@ -36,7 +38,8 @@ import Hitokoto from "@/components/Hitokoto.vue";
 import Weather from "@/components/Weather.vue";
 
 const store = mainStore();
-
+// 改用 clientWidth 检测
+const viewportWidth = document.documentElement.clientWidth;
 // 当前时间
 const currentTime = ref({});
 const timeInterval = ref(null);
@@ -51,6 +54,8 @@ const updateTimeData = () => {
 onMounted(() => {
   updateTimeData();
   timeInterval.value = setInterval(updateTimeData, 1000);
+  // 检测浏览器
+  console.log(store.detectBrowser, '浏览器');
 });
 
 onBeforeUnmount(() => {
@@ -78,16 +83,6 @@ onBeforeUnmount(() => {
       }
     }
   }
-  @media screen and (min-width: 1920px) {
-      position: absolute;
-      left: 2vw;
-      width: 22%;
-      top: 18vw;
-  }
-  @media screen and (max-width: 720px) {
-    margin-top: 8vw;
-  }
-    
   .el-row {
     height: 100%;
     width: 100%;
@@ -157,5 +152,31 @@ onBeforeUnmount(() => {
     }
   }
 }
-
+.function-edge {
+    position: absolute;
+    left: 2vw;
+    width: 22%;
+    bottom: 2vw;
+}
+@media (min-width: 2560px) {
+    .function{
+      position: absolute;
+      left: 2vw;
+      width: 22%;
+      bottom: 1.5vw;
+    }
+  }
+  @media (max-width: 720px) {
+    .function{
+      margin-top: 8vw;
+    }
+  }
+  @media (max-width: 1920px) {
+  .function {
+    position: absolute;
+      left: 2vw;
+      width: 22%;
+      bottom: 7vw;
+  }
+}
 </style>

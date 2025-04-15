@@ -75,7 +75,7 @@ const socialTip = ref("通过这里联系我吧");
     margin-right: 12px;
     animation: fade 0.5s;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 460px) {
     &:hover {
       background-color: #00000040;
       backdrop-filter: blur(5px);

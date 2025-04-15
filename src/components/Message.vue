@@ -3,11 +3,15 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-      <img class="logo-img" src="./../../public/images/icon/logo.jpg" alt="logo" />
+      <img :class="!store.playerState || !store.playerLrcShow ?'logo-img':'logo-img-do'" 
+      :src="store.playerCover?store.playerCover:'https://cdn-jp.imgs.moe/2025/04/15/logo_KmVP6HZdOo.jpg'" alt="logo"  />
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <!-- <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span> -->
-        <span class="sm">喵喵喵？</span>
+        <div class="sm" v-if="store.getPlayerLrc=='歌词加载中'|| !store.playerState || !store.playerLrcShow">喵喵喵？</div>
+        <div v-else class="lrc">
+          <span  class="sm" v-html="store.getPlayerLrc"></span>
+        </div>
       </div>
     </div>
     <!-- 简介 -->
@@ -102,6 +106,18 @@ watch(
       border-radius: 50%;
       width: 120px;
     }
+    .logo-img-do{
+      border-radius: 50%;
+      width: 120px;
+    }
+    @keyframes auto-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .logo-img-do {
+      animation: auto-rotate 10s linear infinite;
+    }
     .name {
       width: 100%;
       padding-left: 22px;
@@ -114,15 +130,20 @@ watch(
 
       .sm {
         margin-left: 6px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         @media (min-width: 721px) and (max-width: 789px) {
           display: none;
         }
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 460px) {
       .logo-img {
         width: 100px;
+      }
+      .logo-img-do{
+        width: 100px;
+        transform-origin: top left; /* 左上角为旋转中心 */
+        animation: auto-rotate 10s ease-in-out infinite;
       }
       .name {
         height: 128px;

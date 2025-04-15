@@ -211,8 +211,11 @@ const openModalList = async (data) => {
         newHtml.value = html;
       }
       
-    }
-    else {
+    }else if(data == 'get60sWorld'){
+      let html = '';
+      html = `<img src=${response.url} style="width: 85%;height: 70%;object-fit: contain;"/> `
+      newHtml.value = html;
+    }else {
       newHtml.value = response;
     }
     // showContent.value = cloneDeep(response);

@@ -249,6 +249,13 @@ watch(
     }
   }
 }
+@media only screen and  (min-width: 1201px) and  (max-width: 1920px) {
+  .music {
+    margin-top: 100px;
+    width: 134%;
+    height: 70%;
+  }
+}
 .music-list {
   position: fixed;
   top: 0;

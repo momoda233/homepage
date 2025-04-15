@@ -6,22 +6,6 @@
     "isOpen": true
   },
   {
-    "icon": "PencilAlt",
-    "name": "人民日报金句",
-    "type": "1",
-    "isOpen": false,
-    "api": "getRenMinSentence", 
-    "returnType": "text"
-  },  
-  {
-    "icon": "PencilAlt",
-    "name": "每日成语",
-    "type": "1",
-    "isOpen": false,
-    "api": "getChengYu", 
-    "returnType": "text"
-  },
-  {
     "icon": "Bullhorn",
     "name": "央视新闻",
     "type": "1",
@@ -37,6 +21,22 @@
     "api": "get60sWorld", 
     "returnType": "image"
   },
+  {
+    "icon": "PencilAlt",
+    "name": "每日成语",
+    "type": "1",
+    "isOpen": false,
+    "api": "getChengYu", 
+    "returnType": "text"
+  },
+  {
+    "icon": "PencilAlt",
+    "name": "人民日报金句",
+    "type": "1",
+    "isOpen": false,
+    "api": "getRenMinSentence", 
+    "returnType": "text"
+  },  
   {
     "icon": "Blog",
     "name": "摸鱼人日历",
@@ -177,7 +177,7 @@
   },
   {
     "icon": "BirthdayCake",
-    "name": "正在开发の生日祝福",
+    "name": "正在开发の生日祝福项目",
     "type": "3",
     "remark": "弹窗列出几个人的，？",
     "repair": true,

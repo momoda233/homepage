@@ -41,6 +41,18 @@ export const getPlayerList = async (server, type, id) => {
 };
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
+// 输出当前日期，如20250406
+function getFormattedDate(pattern = 'YYYYMMDD') {
+  const d = new Date();
+  const parts = {
+    YYYY: d.getFullYear(),
+    MM: String(d.getMonth() + 1).padStart(2, '0'),
+    DD: String(d.getDate()).padStart(2, '0')
+  };
+  return pattern.replace(/YYYY|MM|DD/g, (match) => parts[match]);
+}
+// 使用示例
+// console.log(getFormattedDate()); // 输出：20250406[5,7](@ref)
 /**
  * 一言
  */
@@ -79,7 +91,7 @@ export const getOtherWeather = async () => {
 // 获取人民日报金句
 // http://momoda.voin.ink/bg/人民日报.php
 export const getRenMinSentence= async () => {
-  const res = await fetch("http://momoda.voin.ink/bg/renminribao.php");
+  const res = await fetch("http://momoda.voin.ink/bg/renminriba.php");
     return await res.text(); // 读取文本内容并返回
 };
 // 获取每日成语
@@ -98,7 +110,8 @@ export const getYangShiNews = async () => {
 // 获取每天60s读懂世界
 // https://api.03c3.cn/api/zb
 export const get60sWorld = async () => {
-  const res = await fetch("https://api.03c3.cn/api/zb");
+  const date = getFormattedDate();
+  const res = await fetch(`https://api.suxun.site/60s/${date}.png`);
     return await res; // 读取文本内容并返回
 };
 

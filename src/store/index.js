@@ -19,14 +19,16 @@ export const mainStore = defineStore("main", {
       playerState: true, // 当前播放状态
       playerTitle: null, // 当前播放歌曲名
       playerArtist: null, // 当前播放歌手名
+      playerCover: null, // 当前播放封面
       playerLrc: "歌词加载中喵", // 当前播放歌词
       playerLrcShow: true, // 是否显示底栏歌词
       footerBlur: false, // 底栏模糊
       playerAutoplay: true, // 是否自动播放
       playerLoop: "all", // 循环播放 "all", "one", "none"
       playerOrder: "list", // 循环顺序 "list", "random"
-      rightContent: 'getRenMinSentence', // 右边展示内容，默认 人民日报金句
+      rightContent: 'getYangShiNews', // 右边展示内容，默认 人民日报金句
       rightContentShowStatus: true, // 右边展示状态
+      detectBrowser:  navigator&&navigator.userAgent.indexOf("Edg")>-1?'Edge':'Chrome', // 检测浏览器
     };
   },
   getters: {
@@ -77,9 +79,10 @@ export const mainStore = defineStore("main", {
       this.playerLrc = value;
     },
     // 更改歌曲数据
-    setPlayerData(title, artist) {
+    setPlayerData(title, artist, cover) {
       this.playerTitle = title;
       this.playerArtist = artist;
+      this.playerCover = cover;
     },
     // 更改壁纸加载状态
     setImgLoadStatus(value) {
@@ -93,7 +96,13 @@ export const mainStore = defineStore("main", {
     setRightContent(value) {
       this.rightContent = value;
     },
-
+    setCheckBrowser(state) {
+      // 检测浏览器
+      const brands = navigator.userAgentData.brands;
+      const isEdge = brands.some(b => b.brand === 'Microsoft Edge');
+      const isChrome = brands.some(b => b.brand === 'Google Chrome');
+      return this.detectBrowser = isEdge ? 'Edge' : isChrome ? 'Chrome' : 'Unknown';
+    }
   },
   persist: {
     key: "data",

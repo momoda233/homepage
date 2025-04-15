@@ -5,7 +5,7 @@
         <!-- 时钟 -->
         <div id="clock">
           <!-- 翻页时钟 -->
-          <div class="date-main-top">
+          <div :class="store.detectBrowser=='Edge' ? 'date-main-top-edge' : 'date-main-top'">
             <!-- <span style="position: absolute;left: -7vw;" ><img src="https://cdn-jp.imgs.moe/2025/01/09/710EB159-B8A4-4ECC-A904-1A64405EF68D_B9PJ5mW06D.gif"/>&nbsp;</span> -->
             <span>北京时间：&nbsp;</span>
               <span>{{ currentTime.year }}&nbsp;年&nbsp;</span>
@@ -136,6 +136,8 @@ const updateTimeData = () => {
 onMounted(() => {
   updateTimeData();
   timeInterval.value = setInterval(updateTimeData, 1000);
+  console.log(store.detectBrowser, '浏览器');
+
 });
 
 onBeforeUnmount(() => {
@@ -491,14 +493,29 @@ onBeforeUnmount(() => {
     opacity: 0.1;
   }
 
-  @media (min-width: 1920px) {
-    .date-main-top{
+  @media (min-width: 1201px) and  (max-width: 1912px) {
+    .date-main-top,.date-main-top-edge{
+      position: absolute;
+      left: 16vw;
+      top: 1.8vw;
+      font-size: 20px;
+      font-family: "Pacifico-Regular";
+    }
+    .date-main-top-edge{
+      top: 2.2vw;
+    }
+  }
+  @media (min-width: 2552px) {
+    .date-main-top,.date-main-top-edge{
       position: absolute;
       left: 22vw;
       top: 0.8vw;
       font-size: 20px;
       font-family: "Pacifico-Regular";
   
+    }
+    .date-main-top-edge{
+      top: 1.15vw;
     }
   }
   @media (max-width: 720px) {
