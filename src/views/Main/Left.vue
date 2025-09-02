@@ -2,6 +2,7 @@
   <div :class="store.mobileOpenState ? 'left hidden' : 'left'">
     <Message />
     <SocialLinks />
+    <CalendarGoogle />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import { mainStore } from "@/store";
 import Message from "@/components/Message.vue";
 import SocialLinks from "@/components/SocialLinks.vue";
+import CalendarGoogle from "@/components/CalendarGoogle.vue";
 const store = mainStore();
 </script>
 
@@ -16,6 +18,7 @@ const store = mainStore();
 .left {
   // flex: 1 0 0%;
   width: 50%;
+  height: 80%;
   margin-right: 10px;
   // transform: translateY(20px);
   position: absolute;

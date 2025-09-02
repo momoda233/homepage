@@ -233,6 +233,7 @@ import { Pagination, Mousewheel } from "swiper/modules";
 import siteLinks from "@/assets/siteLinks.json";
 import { cloneDeep } from "lodash";
 import { ref } from "vue";
+import router from '../router/index.js';
 const store = mainStore();
 const musicListShow = ref(false);
 const funcShow1 = ref(true);
@@ -520,7 +521,12 @@ const jumpLink = (data) => {
   }else if(data.isOpen === false){
     // openModalList&&openModalList(data);
     forceUpdateContent(data.api);
-  } else{
+  } else if(data.name==='wallpaper设计ing'){
+       // 执行页面A的独立跳转逻辑
+    router.push({ 
+      path: data.path, 
+    });
+  }else{
     console.error("未找到对应的链接");
   }
 };

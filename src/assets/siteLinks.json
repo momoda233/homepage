@@ -46,6 +46,14 @@
     "returnType": "image"
   },
   {
+    "icon": "Blog",
+    "name": "政治理论",
+    "type": "1",
+    "isOpen": false,
+    "mdPic":true,
+    "returnType": "image"
+  },
+  {
     "icon": "CalendarDay",
     "name": "历史上的今天",
     "type": "1",
@@ -161,11 +169,11 @@
   },
   {
     "icon": "UserTimes",
-    "name": "我の接口",
+    "name": "wallpaper设计ing",
     "type": "3",
-    "isOpen": true,
-    "repair": true,
-    "returnType": "text"
+    "repair": false,
+    "returnType": "text",
+    "path": "/wallpaper"
   },
   {
     "icon": "CompactDisc",
@@ -182,5 +190,13 @@
     "remark": "弹窗列出几个人的，？",
     "repair": true,
     "isOpen": true
+  },
+  {
+    "icon": "UserTimes",
+    "name": "我の接口",
+    "type": "3",
+    "isOpen": true,
+    "repair": true,
+    "returnType": "text"
   }
 ]

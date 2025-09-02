@@ -161,8 +161,8 @@ onBeforeUnmount(() => {
 @media (min-width: 2560px) {
     .function{
       position: absolute;
-      left: 2vw;
-      width: 22%;
+      right: -1.3vw;
+      width: 27%;
       bottom: 1.5vw;
     }
   }

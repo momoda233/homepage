@@ -11,7 +11,10 @@ export const getCurrentTime = () => {
   let hour = time.getHours() < 10 ? "0" + time.getHours() : time.getHours();
   let minute = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
   let second = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
+  let weekdayEn = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];//Ruthligos字体专用
+  let weekdayAllBig = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];//Anurati字体专用
   let weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
   let currentTime = {
     year,
     month,
@@ -20,6 +23,8 @@ export const getCurrentTime = () => {
     minute,
     second,
     weekday: weekday[time.getDay()],
+    weekdayEn: weekdayEn[time.getDay()],
+    weekdayAllBig: weekdayAllBig[time.getDay()],
   };
   return currentTime;
 };

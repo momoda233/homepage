@@ -3,7 +3,10 @@
   <Loading />
   <!-- 壁纸 -->
   <Background @loadComplete="loadComplete" />
+    <!-- 动态渲染当前路由对应的组件 -->
   <!-- 主界面 -->
+  <router-view></router-view>
+
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container" v-show="!store.backgroundShow">
